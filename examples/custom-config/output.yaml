@@ -6,12 +6,13 @@ metadata:
   name: k8smon-grafana-agent-events
   namespace: default
   labels:
-    helm.sh/chart: grafana-agent-events-0.31.1
+    helm.sh/chart: grafana-agent-events-0.44.2
     app.kubernetes.io/name: grafana-agent-events
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-logs/templates/serviceaccount.yaml
 apiVersion: v1
@@ -20,12 +21,13 @@ metadata:
   name: k8smon-grafana-agent-logs
   namespace: default
   labels:
-    helm.sh/chart: grafana-agent-logs-0.31.1
+    helm.sh/chart: grafana-agent-logs-0.44.2
     app.kubernetes.io/name: grafana-agent-logs
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent/templates/serviceaccount.yaml
 apiVersion: v1
@@ -34,12 +36,13 @@ metadata:
   name: k8smon-grafana-agent
   namespace: default
   labels:
-    helm.sh/chart: grafana-agent-0.31.1
+    helm.sh/chart: grafana-agent-0.44.2
     app.kubernetes.io/name: grafana-agent
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
+
 ---
 # Source: k8s-monitoring/charts/kube-state-metrics/templates/serviceaccount.yaml
 apiVersion: v1
@@ -69,6 +72,7 @@ metadata:
     app.kubernetes.io/part-of: opencost
     app.kubernetes.io/managed-by: Helm
 automountServiceAccountToken: true
+
 ---
 # Source: k8s-monitoring/charts/prometheus-node-exporter/templates/serviceaccount.yaml
 apiVersion: v1
@@ -97,6 +101,7 @@ data:
   host: "aHR0cHM6Ly9sb2tpLmV4YW1wbGUuY29t"
   username: "MTIzNDU="
   password: "SXQncyBhIHNlY3JldCB0byBldmVyeW9uZQ=="
+
 ---
 # Source: k8s-monitoring/templates/metrics-service-credentials.yaml
 apiVersion: v1
@@ -110,6 +115,7 @@ data:
   host: "aHR0cHM6Ly9wcm9tZXRoZXVzLmV4YW1wbGUuY29t"
   username: "MTIzNDU="
   password: "SXQncyBhIHNlY3JldCB0byBldmVyeW9uZQ=="
+
 ---
 # Source: k8s-monitoring/templates/grafana-agent-config.yaml
 apiVersion: v1
@@ -939,6 +945,7 @@ data:
       targets    = discovery.relabel.animal_service.output
       forward_to = [prometheus.relabel.metrics_service.receiver]
     }
+
 ---
 # Source: k8s-monitoring/templates/grafana-agent-events-config.yaml
 apiVersion: v1
@@ -1161,6 +1168,7 @@ data:
     # HELP grafana_kubernetes_monitoring_build_info A metric to report the version of the Kubernetes Monitoring Helm chart as well as a summary of enabled features
     # TYPE grafana_kubernetes_monitoring_build_info gauge
     grafana_kubernetes_monitoring_build_info{version="0.10.0", namespace="default", metrics="enabled,agent,autoDiscover,kube-state-metrics,node-exporter,kubelet,cadvisor,cost,extraConfig", logs="enabled,events,pod_logs,extraConfig", traces="disabled", deployments="kube-state-metrics,prometheus-node-exporter,prometheus-operator-crds,opencost"} 1
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-alertmanagerconfigs.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -6883,6 +6891,7 @@ spec:
         type: object
     served: true
     storage: true
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-alertmanagers.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -14304,6 +14313,7 @@ spec:
     storage: true
     subresources:
       status: {}
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-podmonitors.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -15024,6 +15034,7 @@ spec:
         type: object
     served: true
     storage: true
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-probes.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -15761,6 +15772,7 @@ spec:
         type: object
     served: true
     storage: true
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-prometheusagents.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -24279,6 +24291,7 @@ spec:
     storage: true
     subresources:
       status: {}
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-prometheuses.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -34200,6 +34213,7 @@ spec:
     storage: true
     subresources:
       status: {}
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-prometheusrules.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -34331,6 +34345,7 @@ spec:
         type: object
     served: true
     storage: true
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-scrapeconfigs.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -35773,6 +35788,7 @@ spec:
         type: object
     served: true
     storage: true
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-servicemonitors.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -36516,6 +36532,7 @@ spec:
         type: object
     served: true
     storage: true
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-thanosrulers.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -43432,6 +43449,7 @@ spec:
     storage: true
     subresources:
       status: {}
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-events/templates/rbac.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -43439,11 +43457,11 @@ kind: ClusterRole
 metadata:
   name: k8smon-grafana-agent-events
   labels:
-    helm.sh/chart: grafana-agent-events-0.31.1
+    helm.sh/chart: grafana-agent-events-0.44.2
     app.kubernetes.io/name: grafana-agent-events
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 rules:
   # Rules which allow discovery.kubernetes to function.
@@ -43530,6 +43548,8 @@ rules:
   - apiGroups: ["extensions"]
     resources: ["replicasets"]
     verbs: ["get", "list", "watch"]
+
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-logs/templates/rbac.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -43537,11 +43557,11 @@ kind: ClusterRole
 metadata:
   name: k8smon-grafana-agent-logs
   labels:
-    helm.sh/chart: grafana-agent-logs-0.31.1
+    helm.sh/chart: grafana-agent-logs-0.44.2
     app.kubernetes.io/name: grafana-agent-logs
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 rules:
   # Rules which allow discovery.kubernetes to function.
@@ -43628,6 +43648,8 @@ rules:
   - apiGroups: ["extensions"]
     resources: ["replicasets"]
     verbs: ["get", "list", "watch"]
+
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent/templates/rbac.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -43635,11 +43657,11 @@ kind: ClusterRole
 metadata:
   name: k8smon-grafana-agent
   labels:
-    helm.sh/chart: grafana-agent-0.31.1
+    helm.sh/chart: grafana-agent-0.44.2
     app.kubernetes.io/name: grafana-agent
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 rules:
   # Rules which allow discovery.kubernetes to function.
@@ -43726,6 +43748,8 @@ rules:
   - apiGroups: ["extensions"]
     resources: ["replicasets"]
     verbs: ["get", "list", "watch"]
+
+
 ---
 # Source: k8s-monitoring/charts/kube-state-metrics/templates/role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -43881,6 +43905,8 @@ rules:
   resources:
     - volumeattachments
   verbs: ["list", "watch"]
+
+
 ---
 # Source: k8s-monitoring/charts/opencost/templates/clusterrole.yaml
 # Cluster role giving opencost to get, list, watch required resources
@@ -43968,6 +43994,7 @@ rules:
       - get
       - list
       - watch
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-events/templates/rbac.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -43975,11 +44002,11 @@ kind: ClusterRoleBinding
 metadata:
   name: k8smon-grafana-agent-events
   labels:
-    helm.sh/chart: grafana-agent-events-0.31.1
+    helm.sh/chart: grafana-agent-events-0.44.2
     app.kubernetes.io/name: grafana-agent-events
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -43989,6 +44016,7 @@ subjects:
   - kind: ServiceAccount
     name: k8smon-grafana-agent-events
     namespace: default
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-logs/templates/rbac.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -43996,11 +44024,11 @@ kind: ClusterRoleBinding
 metadata:
   name: k8smon-grafana-agent-logs
   labels:
-    helm.sh/chart: grafana-agent-logs-0.31.1
+    helm.sh/chart: grafana-agent-logs-0.44.2
     app.kubernetes.io/name: grafana-agent-logs
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -44010,6 +44038,7 @@ subjects:
   - kind: ServiceAccount
     name: k8smon-grafana-agent-logs
     namespace: default
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent/templates/rbac.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -44017,11 +44046,11 @@ kind: ClusterRoleBinding
 metadata:
   name: k8smon-grafana-agent
   labels:
-    helm.sh/chart: grafana-agent-0.31.1
+    helm.sh/chart: grafana-agent-0.44.2
     app.kubernetes.io/name: grafana-agent
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -44031,6 +44060,7 @@ subjects:
   - kind: ServiceAccount
     name: k8smon-grafana-agent
     namespace: default
+
 ---
 # Source: k8s-monitoring/charts/kube-state-metrics/templates/clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -44074,6 +44104,7 @@ subjects:
   - kind: ServiceAccount
     name: k8smon-opencost
     namespace: default
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-events/templates/service.yaml
 apiVersion: v1
@@ -44081,22 +44112,24 @@ kind: Service
 metadata:
   name: k8smon-grafana-agent-events
   labels:
-    helm.sh/chart: grafana-agent-events-0.31.1
+    helm.sh/chart: grafana-agent-events-0.44.2
     app.kubernetes.io/name: grafana-agent-events
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 spec:
   type: ClusterIP
   selector:
     app.kubernetes.io/name: grafana-agent-events
     app.kubernetes.io/instance: k8smon
+  internalTrafficPolicy: Cluster
   ports:
     - name: http-metrics
       port: 80
       targetPort: 80
       protocol: "TCP"
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-logs/templates/cluster_service.yaml
 apiVersion: v1
@@ -44104,11 +44137,11 @@ kind: Service
 metadata:
   name: k8smon-grafana-agent-logs-cluster
   labels:
-    helm.sh/chart: grafana-agent-logs-0.31.1
+    helm.sh/chart: grafana-agent-logs-0.44.2
     app.kubernetes.io/name: grafana-agent-logs
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 spec:
   type: ClusterIP
@@ -44127,6 +44160,7 @@ spec:
       port: 80
       targetPort: 80
       protocol: "TCP"
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-logs/templates/service.yaml
 apiVersion: v1
@@ -44134,22 +44168,24 @@ kind: Service
 metadata:
   name: k8smon-grafana-agent-logs
   labels:
-    helm.sh/chart: grafana-agent-logs-0.31.1
+    helm.sh/chart: grafana-agent-logs-0.44.2
     app.kubernetes.io/name: grafana-agent-logs
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 spec:
   type: ClusterIP
   selector:
     app.kubernetes.io/name: grafana-agent-logs
     app.kubernetes.io/instance: k8smon
+  internalTrafficPolicy: Cluster
   ports:
     - name: http-metrics
       port: 80
       targetPort: 80
       protocol: "TCP"
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent/templates/cluster_service.yaml
 apiVersion: v1
@@ -44157,11 +44193,11 @@ kind: Service
 metadata:
   name: k8smon-grafana-agent-cluster
   labels:
-    helm.sh/chart: grafana-agent-0.31.1
+    helm.sh/chart: grafana-agent-0.44.2
     app.kubernetes.io/name: grafana-agent
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 spec:
   type: ClusterIP
@@ -44196,6 +44232,7 @@ spec:
       port: 9411
       targetPort: 9411
       protocol: TCP
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent/templates/service.yaml
 apiVersion: v1
@@ -44203,17 +44240,18 @@ kind: Service
 metadata:
   name: k8smon-grafana-agent
   labels:
-    helm.sh/chart: grafana-agent-0.31.1
+    helm.sh/chart: grafana-agent-0.44.2
     app.kubernetes.io/name: grafana-agent
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 spec:
   type: ClusterIP
   selector:
     app.kubernetes.io/name: grafana-agent
     app.kubernetes.io/instance: k8smon
+  internalTrafficPolicy: Cluster
   ports:
     - name: http-metrics
       port: 80
@@ -44235,6 +44273,7 @@ spec:
       port: 9411
       targetPort: 9411
       protocol: TCP
+
 ---
 # Source: k8s-monitoring/charts/kube-state-metrics/templates/service.yaml
 apiVersion: v1
@@ -44262,6 +44301,7 @@ spec:
   selector:    
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/instance: k8smon
+
 ---
 # Source: k8s-monitoring/charts/opencost/templates/service.yaml
 apiVersion: v1
@@ -44284,6 +44324,7 @@ spec:
     - name: http
       port: 9003
       targetPort: 9003
+
 ---
 # Source: k8s-monitoring/charts/prometheus-node-exporter/templates/service.yaml
 apiVersion: v1
@@ -44299,6 +44340,8 @@ metadata:
     app.kubernetes.io/name: prometheus-node-exporter
     app.kubernetes.io/instance: k8smon
     app.kubernetes.io/version: "1.7.0"
+  annotations:
+    prometheus.io/scrape: "true"
 spec:
   type: ClusterIP
   ports:
@@ -44309,6 +44352,7 @@ spec:
   selector:
     app.kubernetes.io/name: prometheus-node-exporter
     app.kubernetes.io/instance: k8smon
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-logs/templates/controllers/daemonset.yaml
 apiVersion: apps/v1
@@ -44316,11 +44360,11 @@ kind: DaemonSet
 metadata:
   name: k8smon-grafana-agent-logs
   labels:
-    helm.sh/chart: grafana-agent-logs-0.31.1
+    helm.sh/chart: grafana-agent-logs-0.44.2
     app.kubernetes.io/name: grafana-agent-logs
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 spec:
   minReadySeconds: 10
@@ -44339,7 +44383,7 @@ spec:
       serviceAccountName: k8smon-grafana-agent-logs
       containers:
         - name: grafana-agent
-          image: docker.io/grafana/agent:v0.39.1
+          image: docker.io/grafana/agent:v0.44.2
           imagePullPolicy: IfNotPresent
           args:
             - run
@@ -44365,6 +44409,7 @@ spec:
             httpGet:
               path: /-/ready
               port: 80
+              scheme: HTTP
             initialDelaySeconds: 10
             timeoutSeconds: 1
           volumeMounts:
@@ -44398,6 +44443,7 @@ spec:
         - name: varlog
           hostPath:
             path: /var/log
+
 ---
 # Source: k8s-monitoring/charts/prometheus-node-exporter/templates/daemonset.yaml
 apiVersion: apps/v1
@@ -44521,6 +44567,7 @@ spec:
         - name: root
           hostPath:
             path: /
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent-events/templates/controllers/deployment.yaml
 apiVersion: apps/v1
@@ -44528,11 +44575,11 @@ kind: Deployment
 metadata:
   name: k8smon-grafana-agent-events
   labels:
-    helm.sh/chart: grafana-agent-events-0.31.1
+    helm.sh/chart: grafana-agent-events-0.44.2
     app.kubernetes.io/name: grafana-agent-events
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 spec:
   replicas: 1
@@ -44552,7 +44599,7 @@ spec:
       serviceAccountName: k8smon-grafana-agent-events
       containers:
         - name: grafana-agent
-          image: docker.io/grafana/agent:v0.39.1
+          image: docker.io/grafana/agent:v0.44.2
           imagePullPolicy: IfNotPresent
           args:
             - run
@@ -44576,6 +44623,7 @@ spec:
             httpGet:
               path: /-/ready
               port: 80
+              scheme: HTTP
             initialDelaySeconds: 10
             timeoutSeconds: 1
           volumeMounts:
@@ -44600,6 +44648,7 @@ spec:
         - name: config
           configMap:
             name: k8smon-grafana-agent-events
+
 ---
 # Source: k8s-monitoring/charts/kube-state-metrics/templates/deployment.yaml
 apiVersion: apps/v1
@@ -44673,6 +44722,7 @@ spec:
             - ALL
       nodeSelector:
         kubernetes.io/os: linux
+
 ---
 # Source: k8s-monitoring/charts/opencost/templates/deployment.yaml
 apiVersion: apps/v1
@@ -44776,6 +44826,7 @@ spec:
               value: "true"
             - name: PROM_CLUSTER_ID_LABEL
               value: "cluster"
+
 ---
 # Source: k8s-monitoring/charts/grafana-agent/templates/controllers/statefulset.yaml
 apiVersion: apps/v1
@@ -44783,11 +44834,11 @@ kind: StatefulSet
 metadata:
   name: k8smon-grafana-agent
   labels:
-    helm.sh/chart: grafana-agent-0.31.1
+    helm.sh/chart: grafana-agent-0.44.2
     app.kubernetes.io/name: grafana-agent
     app.kubernetes.io/instance: k8smon
     
-    app.kubernetes.io/version: "v0.39.1"
+    app.kubernetes.io/version: "v0.44.2"
     app.kubernetes.io/managed-by: Helm
 spec:
   replicas: 1
@@ -44809,7 +44860,7 @@ spec:
       serviceAccountName: k8smon-grafana-agent
       containers:
         - name: grafana-agent
-          image: docker.io/grafana/agent:v0.39.1
+          image: docker.io/grafana/agent:v0.44.2
           imagePullPolicy: IfNotPresent
           args:
             - run
@@ -44847,6 +44898,7 @@ spec:
             httpGet:
               path: /-/ready
               port: 80
+              scheme: HTTP
             initialDelaySeconds: 10
             timeoutSeconds: 1
           volumeMounts:
@@ -44877,33 +44929,43 @@ spec:
         - configMap:
             name: kubernetes-monitoring-telemetry
           name: kubernetes-monitoring-telemetry
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-alertmanagerconfigs.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-alertmanagers.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-podmonitors.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-probes.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-prometheusagents.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-prometheuses.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-prometheusrules.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-scrapeconfigs.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_scrapeconfigs.yaml
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-servicemonitors.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
+
 ---
 # Source: k8s-monitoring/charts/prometheus-operator-crds/charts/crds/templates/crd-thanosrulers.yaml
 # https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
@@ -45939,6 +46001,7 @@ data:
       }
       forward_to = [loki.write.grafana_cloud_loki.receiver]
     }
+
 ---
 # Source: k8s-monitoring/templates/tests/test.yaml
 apiVersion: v1
@@ -45993,6 +46056,7 @@ data:
         }
       ]
     }
+
 ---
 # Source: k8s-monitoring/templates/tests/test.yaml
 apiVersion: v1
@@ -46020,6 +46084,7 @@ spec:
       env:
         - name: AGENT_HOST
           value: k8smon-grafana-agent.default.svc
+
 ---
 # Source: k8s-monitoring/templates/tests/test.yaml
 apiVersion: v1
@@ -46118,6 +46183,7 @@ spec:
     - name: test-files
       configMap:
         name: "test-k8smon-k8s-monitoring"
+
 ---
 # Source: k8s-monitoring/templates/hooks/validate-configuration.yaml
 apiVersion: batch/v1
@@ -46149,7 +46215,7 @@ spec:
         kubernetes.io/os: linux
       containers:
         - name: grafana-agent
-          image: "docker.io/grafana/agent:v0.39.1"
+          image: "docker.io/grafana/agent:v0.44.2"
           command:
           - bash
           - -ec
@@ -46176,3 +46242,4 @@ spec:
         - name: config
           configMap:
             name: "validate-k8smon-k8s-monitoring"
+
